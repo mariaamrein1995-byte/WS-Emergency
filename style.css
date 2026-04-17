@@ -119,7 +119,7 @@ border-bottom: 1px solid var(--primary-color);
   gap: 0.5rem; 
 }
 .about-image-large{
-  min-width: 50%;
+  width: 50%;
 }
 
 .about-images {
