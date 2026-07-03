@@ -1,257 +1,404 @@
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-* {
+/* ===== RESET ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #111;
+  color: white;
+}
+
+/* ===== NAVBAR ===== */
+.navbar {
+  position: line;
+  z-index: 3;
+  width: 100%;
+  background: rgba(15, 15, 15, 0.95);
+  padding: 18px 16px;
+}
+
+.nav-links,
+.footer-links {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
   margin: 0;
   padding: 0;
 }
 
-body {
-  background-color: #141414;
-  color: rgb(241, 245, 244);
-  font-family: "Montserrat", sans-serif;
-
-  --primary-color: rgb(98, 66, 15);
-  --text-color: #fff
-}
-
-.nav {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 3rem;
-  height: 5rem;
-  font-size: 0.8rem;
-  text-align: center;
-}
-
-.nave-item {
+.nav-links a,
+.footer-item {
+  color: white;
   text-decoration: none;
-  color: #fff;
   text-transform: uppercase;
-  letter-spacing: 0.2rem;
-  transition: all 0.2s ease-in-out;
+  letter-spacing: 1.5px;
+  font-size: 0.95rem;
+  font-weight: 600;
+  position: relative;
+  transition: 0.3s;
 }
 
-.nave-item:hover{
+.nav-links a:hover,
+.footer-item: :hover {
   color: rgb(98, 66, 15);
 }
 
-nav.hero-action:hover {
-  color: var(--primary-color);
+.nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background-color: rgb(98, 66, 15);
+  transition: width 0.3s ease;
 }
 
+.nav-links a:hover::after {
+  width: 100%;
+}
+
+/* ===== HERO ===== */
 .hero {
-  height: calc(100vh - 5rem);
+  position: relative;
+  min-height: 100vh;
+  background-image: url("Images/Herz\ Sch.jpg");
+  background-size: cover;
+  background-position: center;
   display: flex;
   flex-direction: column;
-  align-items: center;
+}
+
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 1;
+}
+
+.hero-content {
+  position: relative;
+  z-index: 2;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
   justify-content: center;
+  align-items: center;
   text-align: center;
-  background: url("Herz\ Sch.jpg");
-
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  font-size: 1.5rem;
+  padding: 32px 20px;
 }
-.title {
-  margin: 0 0 8rem 0;
-  font-size: 4rem;
-  line-height: 3rem;
-  font-family: "Fira Sans", sans-serif;
+
+.hero-content h1 {
+  font-size: clamp(2.4rem, 10vw, 5rem);
+  margin-bottom: 18px;
+  text-transform: uppercase;
+}
+
+.hero-content p {
+  font-size: 1rem;
+  margin-bottom: 28px;
+  max-width: 32ch;
+}
+
+/* ===== BUTTONS ===== */
+.hero-button,
+.about-button {
+  display: inline-block;
+  background-color: rgb(70, 116, 99);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none;
   font-weight: 600;
-  color: rgb(22, 24, 23);
+  transition: 0.3s;
 }
 
-.subtitle {
-  font-size: 1.5rem;
-  color: rgb(70, 116, 99);
-  font-family: "Montserrat", sans-serif;
+.hero-button:hover,
+.about-button:hover {
+  background-color: rgb(98, 66, 15);
+  transform: translateY(-2px);
+}
+
+/* ===== ABOUT ===== */
+.about {
+  background-color: #0f0f0f;
+  padding: 60px 0;
+}
+
+.about-container {
+  padding: 80px;
+}
+
+.about-content {
+  align-items: center;
+  width: 100%;
+  max-width: 700px;
+  text-align: left;
+}
+
+.about-content h2 {
+  font-size: 1.8rem;
+  text-transform: uppercase;
+  margin: 0 0 10px 0;
+}
+
+.about-content h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: rgb(70, 116, 99);
+  margin-top: 8px;
+}
+
+.about-content p {
+  color: #ddd;
+  font-size: 1.2rem;
+  line-height: 1.8;
+  max-width: 1000px;
+  margin: 0 auto 20px auto;
+}
+
+.about-button {
+  display: inline-block;
+  background-color: rgb(70, 116, 99);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none;
   font-weight: 600;
-}
-
-.hero-action{
-  margin-top: 4rem;
-}
-.container{ 
-  max-width: 85%;
+  transition: 0.3s;
+  display: block;
+  width: fit-content;
   margin: 0 auto;
 }
-.button {
-  display: inline-block;
-  margin: 2rem;
-  padding: 1rem 2rem;
-  border: 1px solid rgb(103, 140, 127);
-  color: #fff;
-  text-decoration: none;
-  background-color: rgb(70, 116, 99);
-  transition: all 0.2s ease-in-out;
-}
-.button:hover {
-  background-color: transparent;
-  color: var(--primary-color);
-}
-.heading{
-margin: 2rem;
-width: fit-content;
-text-transform: uppercase;
-letter-spacing: 0.1rem;
-border-bottom: 1px solid var(--primary-color);
-}
-.about{ 
-  display: grid;
-  gap: 2rem;
+
+.about-button:hover {
+  background-color: rgb(98, 66, 15);
+  transform: translateY(-2px);
 }
 
-.about-text{
-  margin: 2rem;
-  font-size: 2rem;
-  color: var(--text-color)
-  }
-
-.about-action{
-  margin-top: 2rem;
+.about-container {
+  text-align: center;
 }
 
-.about-images {
+.about-image {
   width: 100%;
   display: flex;
-  gap: 0.5rem; 
-}
-.about-image-large{
-  width: 50%;
-}
-
-.about-images {
-  width: 100%; 
-  height: 100%;
-  display: flex;
-}
-
-
-
-
-
-@media only screen and (min-width: 600px) {
-  .nav{
-    gab: 2rem
-    font-size: 1rem
-  }
-
-  .title {
-    font-size: 4rem;
-    line-height: 4rem;
-  }
-  .subtitle {
-    font-size: 1.5rem;
-  }
-
-  .button{
-    padding: 1.5rem 2.5rem;
-  }
-
-  .about-text{
-    font-size: 1rem;
-  }
-  .about{
-    grid-template-columns: 1fr 1fr;
-    margin-top: 6rem;
-  }
-
-  .about-images{
-    gap: 1rem;
-
-  }
-}
-@media only screen and (min-width: 1000px) {
-  .nav{
-    gap: 4rem;
-  }
-  .title {
-    font-size: 6rem;
-    line-height: 6.5rem;
-  }
-  .heading{
-    font-size: 4rem;
-  }
-}
-
-@media only screen and (min-width:1400px){
-.container{
-  max-width: 1200px;
-}
-}
-
-.cours-offer{
-  background: #f3eee7;
-  padding: 4rem 2rem;
-}
-
-
-.menu-items {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 25px;
+  justify-content: center;
   margin-top: 30px;
 }
 
-.card {
-  background: white;
-  padding: 25px;
-  border-radius: 14px;
-  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+.about-image img {
+  width: 100%;
+  max-width: 500px;
+  display: block;
+  border-radius: 6px;
+}
+
+.info-wrapper {
+  margin: 3rem 0;
+  padding: 2rem 0;
+  background: url("./images/Herz\ Sch.jpg");
+  background-position: center;
+}
+.hours {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin-top: 1rem;
 }
 
-.card h3 {
-  margin-bottom: 10px;
-  color: rgb(70, 116, 99);
+.heading {
   text-align: center;
 }
 
-.card p {
-  margin-bottom: 12px;
-  color: #0f0f0f;
+.hours-entry {
+  display: flex;
+  justify-content: space-between;
+  width: 15rem;
 }
 
-.card .duration {
+.days {
+  color: var(--text-color);
+}
+
+.contact {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 80px auto;
+  padding: 40px 30px;
+}
+
+.contact-content {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 80px;
+  width: 100%;
+  max-width: 1100px;
+}
+
+.contact .heading {
+  margin-top: 0;
+}
+
+.contact-details {
+  text-align: left;
+}
+
+.contact-details .heading {
+  text-align: left;
+  margin-bottom: 20px;
+}
+
+.contact-detail {
+  margin-top: 1.1rem;
+  margin-bottom: 20px;
+  color: white;
+}
+
+.contact-actions {
+  margin-top: 25px;
+}
+
+.contact-image {
+  width: 420px;
+  max-width: 100%;
+}
+
+.button {
+  display: inline-block;
+  background-color: rgb(70, 116, 99);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.button:hover {
+  background-color: rgb(98, 66, 15);
+  transform: translateY(-2px);
+}
+
+.button-inverted {
+  display: inline-block;
+  background-color: rgb(70, 116, 99);
+  color: white;
+  padding: 14px 24px;
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.button-inverted:hover {
+  background-color: rgb(98, 66, 15);
+  transform: translateY(-2px);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+  padding: 2rem 1rem;
+  font-size: 0.8rem;
   text-align: center;
-  font-weight: bold;
-  color: rgb(98, 66, 15);
-  margin-top: auto;
+  background-color: black;
 }
-@media (max-width: 1000px) {
-  .course-offer {
-    padding: 3rem 2rem;
-  }
 
-  .menu-items {
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
-  }
-
-  .card {
-    padding: 1.5rem;
-    
-  }
+.footer-links {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
 }
-@media (max-width: 1024px) {
-  .course-offer {
-    padding: 4rem 3rem;
-  }
 
-  .menu-items {
-    grid-template-columns: repeat(3, 1fr);
+.footer-copyright {
+  margin-top: 1rem;
+  color: #ddd;
+}
+@media only screen and (min-width: 600px) {
+  .nav,
+  .footer-links {
     gap: 2rem;
+    font-size: 1rem;
+  }
+
+  .footer {
+    margin-top: 4rem;
+    padding: 3rem 0;
+    gap: 3rem;
+  }
+
+  .footer-links {
+    flex-direction: row;
+  }
+
+  .title {
+    font-size: 2rem;
   }
 
   .heading {
-    font-size: 1.8rem;
+    font-size: 2rem;
   }
 
-  .card h3 {
+  .about {
+    grid-template-columns: 1fr 1fr;
+    margin-top: 6rem;
+    align-items: center;
+  }
+
+  .about-image {
+    gap: 1rem;
+  }
+
+  .info-wrapper {
+    margin: 8rem 0;
+    padding: 6rem 0;
+  }
+  .hours {
+    margin-top: 2rem;
+  }
+
+  .hours-entry {
+    width: 20rem;
     font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+}
+@media only screen and (min-width: 1400px) {
+  .container {
+    max-width: 1200px;
   }
 }
 
+@media (max-width: 800px) {
+  .contact-content {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .contact-details,
+  .contact-details .heading {
+    text-align: center;
+  }
+}
